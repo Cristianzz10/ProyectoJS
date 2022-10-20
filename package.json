@@ -1,0 +1,24 @@
+{
+  "name": "proyectojs",
+  "version": "1.0.0",
+  "description": "Tienda virtual de productos para mascotas",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cristianzz10/ProyectoJS.git"
+  },
+  "author": "Cristian Zambrano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cristianzz10/ProyectoJS/issues"
+  },
+  "homepage": "https://github.com/Cristianzz10/ProyectoJS#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.6.6"
+  }
+}
