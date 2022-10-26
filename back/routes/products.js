@@ -9,4 +9,5 @@ router.route('/producto/:id').get(getProductsById); //ruta para consultar por id
 router.route('/producto/:id').put(updateProduct);//Creacion de la ruta de actualizacion
 router.route('/producto/:id').delete(deleteProduct); //Creacion de la ruta de eliminacion por id
 
+
 module.exports=router;
