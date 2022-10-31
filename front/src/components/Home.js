@@ -11,6 +11,10 @@ export const Home = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
+        if (error){
+            return alert.error(error)
+        }
+        
         dispatch(getProducts());
         alert.success("ok")
     }, [dispatch])
