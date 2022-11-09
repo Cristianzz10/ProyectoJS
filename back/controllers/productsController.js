@@ -4,7 +4,7 @@ const ErrorHandler = require("../utils/errorHandler");
 const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url)); //Usurpación
 
 //Ver la lista de productos
-exports.getProducts=async (req,res,next) =>{
+exports.getProducts=catchAsyncErrors(async (req,res,next) =>{
     const productos= await producto.find();
     if (!productos){
         return res.status(404).json({
@@ -18,7 +18,7 @@ exports.getProducts=async (req,res,next) =>{
         cantidad: productos.length,
         productos
     })
-}
+})
 
 //Ver un producto por ID
 exports.getProductsById= catchAsyncErrors ( async (req, res, next)=>{
@@ -35,7 +35,7 @@ exports.getProductsById= catchAsyncErrors ( async (req, res, next)=>{
 })
 
 //Update un producto
-exports.updateProduct= async (req,res,next) =>{
+exports.updateProduct= catchAsyncErrors(async (req,res,next) =>{
     let product= await producto.findById(req.params.id) //Variable de tipo modificable
     if (!product){ //Verifico que el objeto no existe para finalizar el poceso
         return res.status(404).json({
@@ -54,10 +54,10 @@ exports.updateProduct= async (req,res,next) =>{
         message:"Producto actualizado correctamente",
         product
     })
-}
+})
 
 //Eliminar un producto
-exports.deleteProduct= async (req,res,next) =>{
+exports.deleteProduct= catchAsyncErrors(async (req,res,next) =>{
     const product= await producto.findById(req.params.id) //Variable de tipo modificable
     if (!product){ //Verifico que el objeto no existe para finalizar el poceso
         return res.status(404).json({//Si el objeto no existe, return termina el metodo
@@ -71,7 +71,7 @@ exports.deleteProduct= async (req,res,next) =>{
         success:true,
         message:"Producto eliminado correctamente"
     })
-}
+})
 
 //Crear nuevo producto /api/productos
 exports.newProduct=catchAsyncErrors(async(req,res,next)=>{

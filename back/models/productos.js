@@ -15,7 +15,7 @@ const productosSchema=mongoose.Schema({
     },
     descripcion:{
         type:String,
-        require:[true,"Por favor registro una descripcion para el producto."]
+        required:[true,"Por favor registro una descripcion para el producto."]
     },
     calificacion:{
         type: Number,
